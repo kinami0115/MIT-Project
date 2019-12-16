@@ -19,6 +19,7 @@ int doorangle=0; //2번 서모보터 각도
 int distance; //초음파 거리
 int trig =5;// trig 핀번호
 int echo =6; //echo 빈번호
+int y= analogRead(2); //불꽃 감지 센서 A2 핀 설정
 DHT11 dht11(pin);
 int light = 0; //빛 조절
 int fire =0; //fire
@@ -45,7 +46,7 @@ void setup()
 void loop(){
   int err; //온습도 에러 
   float temp, humi; //온도와 습도 값
-  int y= analogRead(2); //불꽃 감지 센서 A2 핀 설정
+  
   i2c_communication(); // 슬레이브로 데이터 요구 및 수신 데이터 처리
   for (angle = 20; angle < 180; angle++){
     servo1.write(angle);
